@@ -1,4 +1,4 @@
-import { ReactComponent as ArrorRight } from "../../icons/arrow-right.svg";
+import { ReactComponent as ArrowRight } from "../../icons/arrow-right.svg";
 
 import styles from "./search.module.css";
 
@@ -6,15 +6,16 @@ export const Search = () => {
   return (
     <fieldset className={styles.fieldSet}>
       <input
-        type="text"
-        name="search"
-        id="search"
+        id="q"
+        aria-label="Search domain names"
         placeholder="Search for a domain name"
+        type="search"
+        name="q"
         autoFocus={true}
         className={styles.searchInput}
       />
       <button className={styles.searchButton}>
-        <ArrorRight />
+        <ArrowRight />
       </button>
     </fieldset>
   );
