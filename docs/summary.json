@@ -1,0 +1,176 @@
+{
+    "code": "0",
+    "msg": "",
+    "data": [
+        {
+            "chainFullName": "Bitcoin",
+            "chainShortName": "BTC",
+            "symbol": "BTC",
+            "lastHeight": "782511",
+            "lastBlockTime": "1679779240000",
+            "circulatingSupply": "19328137",
+            "circulatingSupplyProportion": "0.9204",
+            "transactions": "822906885"
+        },
+        {
+            "chainFullName": "BitcoinCash",
+            "chainShortName": "BCH",
+            "symbol": "BCH",
+            "lastHeight": "785488",
+            "lastBlockTime": "1679778697000",
+            "circulatingSupply": "19346775",
+            "circulatingSupplyProportion": "0.9212",
+            "transactions": "366264706"
+        },
+        {
+            "chainFullName": "Ethereum",
+            "chainShortName": "ETH",
+            "symbol": "ETH",
+            "lastHeight": "16907116",
+            "lastBlockTime": "1679779283000",
+            "circulatingSupply": "122373866.2178",
+            "circulatingSupplyProportion": "1",
+            "transactions": "1914660373"
+        },
+        {
+            "chainFullName": "OKEXCHAIN",
+            "chainShortName": "OKC",
+            "symbol": "OKT",
+            "lastHeight": "18294844",
+            "lastBlockTime": "1679750481000",
+            "circulatingSupply": "19491130.875",
+            "circulatingSupplyProportion": "0.9281490892857143",
+            "transactions": "138262965"
+        },
+        {
+            "chainFullName": "BNB Chain",
+            "chainShortName": "BSC",
+            "symbol": "BNB",
+            "lastHeight": "26781515",
+            "lastBlockTime": "1679779287000",
+            "circulatingSupply": "157889822.99100262",
+            "circulatingSupplyProportion": "1",
+            "transactions": "3584346166"
+        },
+        {
+            "chainFullName": "Ethereum Classic",
+            "chainShortName": "ETC",
+            "symbol": "ETC",
+            "lastHeight": "17198032",
+            "lastBlockTime": "1679779283000",
+            "circulatingSupply": "140080992.67743644",
+            "circulatingSupplyProportion": "1",
+            "transactions": "109188535"
+        },
+        {
+            "chainFullName": "Litecoin",
+            "chainShortName": "LTC",
+            "symbol": "LTC",
+            "lastHeight": "2445124",
+            "lastBlockTime": "1679778448000",
+            "circulatingSupply": "72561764.3221777",
+            "circulatingSupplyProportion": "0.8638",
+            "transactions": "148165106"
+        },
+        {
+            "chainFullName": "DASH",
+            "chainShortName": "DASH",
+            "symbol": "DASH",
+            "lastHeight": "1843510",
+            "lastBlockTime": "1679779221000",
+            "circulatingSupply": "11199194.85140038",
+            "circulatingSupplyProportion": "0.5928",
+            "transactions": "46955314"
+        },
+        {
+            "chainFullName": "TRON",
+            "chainShortName": "TRON",
+            "symbol": "TRX",
+            "lastHeight": "49722248",
+            "lastBlockTime": "1679779287000",
+            "circulatingSupply": "91108496220.62978",
+            "circulatingSupplyProportion": "1",
+            "transactions": "5145157389"
+        },
+        {
+            "chainFullName": "Polygon",
+            "chainShortName": "POLYGON",
+            "symbol": "MATIC",
+            "lastHeight": "40766126",
+            "lastBlockTime": "1679779284000",
+            "circulatingSupply": "9080469069.28493",
+            "circulatingSupplyProportion": "",
+            "transactions": "2577966016"
+        },
+        {
+            "chainFullName": "Avalanche",
+            "chainShortName": "AVAXC",
+            "symbol": "AVAX",
+            "lastHeight": "27903091",
+            "lastBlockTime": "1679779287000",
+            "circulatingSupply": "325759771.15826684",
+            "circulatingSupplyProportion": "",
+            "transactions": "193754661"
+        },
+        {
+            "chainFullName": "Aptos",
+            "chainShortName": "APT",
+            "symbol": "APT",
+            "lastHeight": "41765574",
+            "lastBlockTime": "",
+            "circulatingSupply": "177305846",
+            "circulatingSupplyProportion": "0",
+            "transactions": "105400082"
+        },
+        {
+            "chainFullName": "EthereumPoW",
+            "chainShortName": "ETHW",
+            "symbol": "ETHW",
+            "lastHeight": "16783063",
+            "lastBlockTime": "1679779221000",
+            "circulatingSupply": "107818999.04993",
+            "circulatingSupplyProportion": "1",
+            "transactions": "1682298335"
+        },
+        {
+            "chainFullName": "EthereumFair",
+            "chainShortName": "ETHF",
+            "symbol": "ETHF",
+            "lastHeight": "16773445",
+            "lastBlockTime": "1679779264000",
+            "circulatingSupply": "",
+            "circulatingSupplyProportion": "",
+            "transactions": "1659412446"
+        },
+        {
+            "chainFullName": "Fantom",
+            "chainShortName": "FTM",
+            "symbol": "FTM",
+            "lastHeight": "58372016",
+            "lastBlockTime": "1679779288000",
+            "circulatingSupply": "2783487555.368655",
+            "circulatingSupplyProportion": "0.876689",
+            "transactions": "398042230"
+        },
+        {
+            "chainFullName": "Optimism",
+            "chainShortName": "OPTIMISM",
+            "symbol": "ETH",
+            "lastHeight": "83692413",
+            "lastBlockTime": "1679779268000",
+            "circulatingSupply": "314844141",
+            "circulatingSupplyProportion": "0.0734",
+            "transactions": "83692345"
+        },
+        {
+            "chainFullName": "Arbitrum",
+            "chainShortName": "ARBITRUM",
+            "symbol": "ETH",
+            "lastHeight": "73654816",
+            "lastBlockTime": "1679779289000",
+            "circulatingSupply": "1275000000",
+            "circulatingSupplyProportion": "0.1275",
+            "transactions": "152265300"
+        }
+    ]
+}
