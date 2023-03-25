@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import { Web3Auth } from "@web3auth/modal";
 import { CHAIN_NAMESPACES, SafeEventEmitterProvider } from "@web3auth/base";
 
-import { Header } from "./components/Header";
-
-import styles from "./app.module.css";
+import { Logo } from "../Logo";
+import styles from "./header.module.css";
 
 const CLIENT_ID =
   "BDQ6I0LSfL5xNw6y5b5vXWwn-g5rlAQvwZMCLhy5ZqV2dW731MaNNsQL-T7-TgZ5PeqK73okS3Z7ExHTtT4bpNo";
 
-const App: React.FC = () => {
+export const Header: React.FC = () => {
   const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null);
   const [provider, setProvider] = useState<SafeEventEmitterProvider | null>(
     null
@@ -299,12 +298,11 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.app}>
-        <Header />
-      </div>
-    </div>
+    <header className={styles.header}>
+      <Logo />
+      <button className={styles.button} onClick={login}>
+        Sign In
+      </button>
+    </header>
   );
 };
-
-export default App;

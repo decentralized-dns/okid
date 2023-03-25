@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-2x);
+  padding-inline: var(--space-8x);
+  border-radius: var(--r24);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-m);
+  color: var(--clr-dark);
+  background-color: var(--clr-accent);
+  border: 1px solid var(--clr-accent);
+  transition: border var(--transition), background-color var(--transition);
+}
+
+.button:hover {
+  background-color: var(--clr-accent-shade);
+  border: 1px solid var(--clr-accent-shade);
+}
