@@ -329,10 +329,8 @@ function Hero() {
       <div className={styles.title}>
         <h1 className={styles.heading}>Decentralized Domain Name Services</h1>
         <p className={styles.description}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam
-          dolores facilis incidunt voluptate ipsum hic similique rerum qui
-          perspiciatis adipisci tempore harum accusantium iure, sit, odio
-          explicabo? Laudantium, aperiam? Vitae.
+          Secure. Interoperable. Catalytic. Unleashing Business Potential with
+          the One-Stop Decentralized Identity Solution - DDNS
         </p>
         <Search />
       </div>
