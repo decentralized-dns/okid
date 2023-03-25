@@ -27,3 +27,5 @@ jobs:
     - run: npm ci
     - run: npm run hardhat:compile
     - run: npm run hardhat:test
+    - name: deploy to testnet
+      run: make deploy
