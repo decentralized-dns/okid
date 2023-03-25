@@ -10,6 +10,7 @@ import { Logo } from "./components/Logo";
 import { ReactComponent as OkxLogo } from "./assets/okx-logo.svg";
 import { ReactComponent as Flash } from "./icons/flash.svg";
 import { ReactComponent as Connect } from "./icons/connect.svg";
+import circuitBoard from "./assets/circuit-board.svg";
 
 import styles from "./app.module.css";
 
@@ -387,7 +388,7 @@ function FeatureCards() {
       <Card
         title="XYZ"
         description="lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam"
-        bg={<img src="./circuit-board.svg" alt="" />}
+        bg={<img src={circuitBoard} alt="" />}
         className={styles.largeCard}
       />
     </section>
