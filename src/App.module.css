@@ -11,3 +11,168 @@
   display: flex;
   flex-direction: column;
 }
+
+.main {
+  flex-grow: 1;
+}
+
+.hero {
+  min-height: calc(100vh - var(--header-height) - var(--page-margin));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.heading {
+  font-size: clamp(3rem, 10vw + 1rem, 5rem);
+  text-shadow: var(--shadow-shiny);
+  margin-bottom: var(--space-gap);
+}
+
+.heading span {
+  font-size: var(--fs-xl);
+}
+
+.description {
+  color: var(--clr-light-shade);
+}
+
+.teamIntro {
+  padding-block: var(--space-gap);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4x);
+  align-self: center;
+}
+
+.teamIntroDivider {
+  width: 1.5px;
+  height: 45px;
+  background-color: var(--clr-light);
+}
+
+.banner {
+  composes: fullWidth from "./index.css";
+  height: 300px;
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  .banner {
+    display: flex;
+  }
+}
+
+.scrollElement {
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+}
+
+.primary {
+  animation: primary 8s linear infinite;
+}
+
+.secondary {
+  animation: secondary 8s linear infinite;
+}
+
+@keyframes primary {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes secondary {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+.bannerLogo {
+  width: 300px;
+}
+
+.bannerText {
+  font-size: var(--space-16x);
+}
+
+.featureCards {
+  display: grid;
+  gap: calc(var(--space-gap) * 2);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding-block: var(--space-24x);
+}
+
+.iconContainer {
+  -webkit-mask-image: linear-gradient(black, transparent 70%);
+}
+
+.cardIcon {
+  color: var(--clr-light);
+  max-width: 200px;
+  height: auto;
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  pointer-events: none;
+  animation: animateDash 5s linear forwards infinite;
+}
+
+@keyframes animateDash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.cardTitle {
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-gap);
+}
+
+div.largeCard {
+  overflow: hidden;
+}
+
+@media (min-width: 710px) {
+  div.largeCard {
+    grid-column: 1 / span 2;
+  }
+}
+
+.cardBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  -webkit-mask-image: radial-gradient(
+    circle,
+    var(--clr-dark),
+    transparent 70%,
+    transparent 100%
+  );
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

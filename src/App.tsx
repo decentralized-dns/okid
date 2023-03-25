@@ -3,6 +3,13 @@ import { Web3Auth } from "@web3auth/modal";
 import { CHAIN_NAMESPACES, SafeEventEmitterProvider } from "@web3auth/base";
 
 import { Header } from "./components/Header";
+import { Search } from "./components/Search";
+import { AvatarList } from "./components/AvatarList";
+import { Card } from "./components/Card";
+import { Logo } from "./components/Logo";
+import { ReactComponent as OkxLogo } from "./assets/okx-logo.svg";
+import { ReactComponent as Flash } from "./icons/flash.svg";
+import { ReactComponent as Connect } from "./icons/connect.svg";
 
 import styles from "./app.module.css";
 
@@ -302,9 +309,109 @@ const App: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.app}>
         <Header />
+
+        <main className={styles.main}>
+          <Hero />
+          <Banner />
+          <FeatureCards />
+        </main>
+
+        <Footer />
       </div>
     </div>
   );
 };
+
+function Hero() {
+  return (
+    <section className={styles.hero}>
+      <div className={styles.title}>
+        <h1 className={styles.heading}>Decentralized Domain Name Services</h1>
+        <p className={styles.description}>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam
+          dolores facilis incidunt voluptate ipsum hic similique rerum qui
+          perspiciatis adipisci tempore harum accusantium iure, sit, odio
+          explicabo? Laudantium, aperiam? Vitae.
+        </p>
+        <Search />
+      </div>
+
+      <div className={styles.teamIntro}>
+        <h3>XYZ Team</h3>
+        <span className={styles.teamIntroDivider} />
+        <AvatarList />
+      </div>
+    </section>
+  );
+}
+
+function Banner() {
+  return (
+    <section className={styles.banner}>
+      <div className={`${styles.scrollElement} ${styles.primary}`}>
+        <BannerElement />
+      </div>
+      <div className={`${styles.scrollElement} ${styles.secondary}`}>
+        <BannerElement />
+      </div>
+    </section>
+  );
+}
+
+function BannerElement() {
+  return (
+    <>
+      <OkxLogo className={styles.bannerLogo} />
+      <h1 className={styles.bannerText}>Web3 Hackathon 2023</h1>
+    </>
+  );
+}
+
+function FeatureCards() {
+  return (
+    <section className={styles.featureCards}>
+      <Card>
+        <div className={styles.iconContainer}>
+          <Flash className={styles.cardIcon} />
+        </div>
+        <h3 className={styles.cardTitle}>Fast onboard</h3>
+        <p>
+          Seamless onboarding experience for both web2 and web3 users with
+          mainstream auth integration.
+        </p>
+      </Card>
+
+      <Card>
+        <div className={styles.iconContainer}>
+          <Connect className={styles.cardIcon} />
+        </div>
+        <h3 className={styles.cardTitle}>One for all</h3>
+        <p>
+          A single, secure identity across web3 with control over privacy and
+          data sharing.
+        </p>
+      </Card>
+
+      <Card className={styles.largeCard}>
+        <div className={styles.cardBg}>
+          <img src="./circuit-board.svg" alt="" />
+        </div>
+        <h3 className={styles.cardTitle}>XYZ</h3>
+        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam</p>
+      </Card>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className={styles.footer}>
+      <Logo hasText={false} size="s" />
+      <small>
+        © {new Date().getFullYear()} DDNS team. All Rights Reserved.
+      </small>
+    </footer>
+  );
+}
 
 export default App;
