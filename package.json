@@ -18,7 +18,9 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "hardhat:test": "hardhat test",
-    "hardhat:compile": "hardhat compile"
+    "hardhat:compile": "hardhat compile",
+    "hardhat:deploy:testnet": "hardhat run scripts/deploy.cjs --network OKCTestnet",
+    "hardhat:deploy:mainnet": "hardhat run scripts/deploy.cjs --network OKCMainnet"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +52,7 @@
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
+    "dotenv": "^16.0.3",
     "hardhat": "^2.13.0",
     "https-browserify": "^1.0.0",
     "os-browserify": "^0.3.0",
