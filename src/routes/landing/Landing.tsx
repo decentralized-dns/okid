@@ -2,22 +2,20 @@
 // import { Web3Auth } from "@web3auth/modal";
 // import { CHAIN_NAMESPACES, SafeEventEmitterProvider } from "@web3auth/base";
 
-import { Header } from "./components/Header";
-import { Search } from "./components/Search";
-import { AvatarList } from "./components/AvatarList";
-import { Card } from "./components/Card";
-import { Logo } from "./components/Logo";
-import { ReactComponent as OkxLogo } from "./assets/okx-logo.svg";
-import { ReactComponent as Flash } from "./icons/flash.svg";
-import { ReactComponent as Connect } from "./icons/connect.svg";
-import circuitBoard from "./assets/circuit-board.svg";
+import { Search } from "../../components/Search";
+import { AvatarList } from "../../components/AvatarList";
+import { Card } from "../../components/Card";
+import { ReactComponent as OkxLogo } from "../../assets/okx-logo.svg";
+import { ReactComponent as Flash } from "../../icons/flash.svg";
+import { ReactComponent as Connect } from "../../icons/connect.svg";
+import circuitBoard from "../../assets/circuit-board.svg";
 
-import styles from "./app.module.css";
+import styles from "./landing.module.css";
 
 // const CLIENT_ID =
 //   "BDQ6I0LSfL5xNw6y5b5vXWwn-g5rlAQvwZMCLhy5ZqV2dW731MaNNsQL-T7-TgZ5PeqK73okS3Z7ExHTtT4bpNo";
 
-const App: React.FC = () => {
+export const Landing = () => {
   // const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null);
   // const [provider, setProvider] = useState<SafeEventEmitterProvider | null>(
   //   null
@@ -307,19 +305,11 @@ const App: React.FC = () => {
   // }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.app}>
-        <Header />
-
-        <main className={styles.main}>
-          <Hero />
-          <Banner />
-          <FeatureCards />
-        </main>
-
-        <Footer />
-      </div>
-    </div>
+    <>
+      <Hero />
+      <Banner />
+      <FeatureCards />
+    </>
   );
 };
 
@@ -392,16 +382,3 @@ function FeatureCards() {
     </section>
   );
 }
-
-function Footer() {
-  return (
-    <footer className={styles.footer}>
-      <Logo hasText={false} size="s" />
-      <small>
-        © {new Date().getFullYear()} DDNS team. All Rights Reserved.
-      </small>
-    </footer>
-  );
-}
-
-export default App;
