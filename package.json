@@ -2,6 +2,7 @@
   "name": "ddns",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://decentralized-dns.github.io/ddns/",
   "dependencies": {
     "@web3auth/base": "^5.1.0",
     "@web3auth/modal": "^5.1.0",
