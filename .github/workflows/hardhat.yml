@@ -10,10 +10,8 @@ on:
 
 env:
   OKCMainnet: "https://exchainrpc.okex.org/"
-  OKCMainnetChainId: "66"
   OKCMainnetPrivateKey: ${{ secrets.OKCMainnetPrivateKey }}
   OKCTestnetNode: "https://exchaintestrpc.okex.org/"
-  OKCTestnetChainId: "65"
   OKCTestnetPrivateKey: ${{ secrets.OKCTestnetPrivateKey }}
 
 jobs:
