@@ -370,35 +370,26 @@ function BannerElement() {
 function FeatureCards() {
   return (
     <section className={styles.featureCards}>
-      <Card>
-        <div className={styles.iconContainer}>
-          <Flash className={styles.cardIcon} />
-        </div>
-        <h3 className={styles.cardTitle}>Fast onboard</h3>
-        <p>
-          Seamless onboarding experience for both web2 and web3 users with
-          mainstream auth integration.
-        </p>
-      </Card>
+      <Card
+        title="Fast onboard"
+        description="Seamless onboarding experience for both web2 and web3 users with
+          mainstream auth integration."
+        icon={<Flash className={styles.cardIcon} />}
+      />
 
-      <Card>
-        <div className={styles.iconContainer}>
-          <Connect className={styles.cardIcon} />
-        </div>
-        <h3 className={styles.cardTitle}>One for all</h3>
-        <p>
-          A single, secure identity across web3 with control over privacy and
-          data sharing.
-        </p>
-      </Card>
+      <Card
+        title="One for all"
+        description="A single, secure identity across web3 with control over privacy and
+          data sharing."
+        icon={<Connect className={styles.cardIcon} />}
+      />
 
-      <Card className={styles.largeCard}>
-        <div className={styles.cardBg}>
-          <img src="./circuit-board.svg" alt="" />
-        </div>
-        <h3 className={styles.cardTitle}>XYZ</h3>
-        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam</p>
-      </Card>
+      <Card
+        title="XYZ"
+        description="lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam"
+        bg={<img src="./circuit-board.svg" alt="" />}
+        className={styles.largeCard}
+      />
     </section>
   );
 }
