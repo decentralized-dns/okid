@@ -6,14 +6,14 @@ module.exports = {
 
   networks: {
     OKCTestnet: {
-      url: process.env.OKCTestnet,
-      blockGasLimit: 10000000,
-      gas: 10000000,
+      url: "https://exchaintestrpc.okex.org",
+      // blockGasLimit: 10000000,
+      // gas: 10000000,
       chainId: 66,
-      throwOnTransactionFailures: true,
-      throwOnCallFailures: true,
-      accounts: [process.env.OKCTestnetPrivateKey],
-      allowUnlimitedContractSize: true,
+      // throwOnTransactionFailures: true,
+      // throwOnCallFailures: true,
+      // accounts: [process.env.OKCTestnetPrivateKey],
+      // allowUnlimitedContractSize: true,
     },
   },
 };
