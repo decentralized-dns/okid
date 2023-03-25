@@ -25,6 +25,12 @@ const members = [
     imageSrc: "https://avatars.githubusercontent.com/u/38232201?v=4",
     githubUrl: "https://github.com/LanmingMa",
   },
+  {
+    id: "4",
+    name: "Yanbang",
+    imageSrc: "https://avatars.githubusercontent.com/u/111951846?v=4",
+    githubUrl: "https://github.com/metacompany-x",
+  },
 ];
 
 export const AvatarList = () => {
@@ -51,11 +57,7 @@ function Avatar({ name, imageSrc, githubUrl }: AvatarProps) {
       rel="noopener noreferrer"
       className={styles.avatar}
     >
-      <img
-        src={imageSrc}
-        alt={`Profile image for ${name}`}
-        className="avatar"
-      />
+      <img src={imageSrc} alt={`${name}`} className="avatar" />
     </a>
   );
 }

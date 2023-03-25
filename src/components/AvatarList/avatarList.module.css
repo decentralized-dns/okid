@@ -24,11 +24,13 @@
   transform: translateX(calc((var(--space-2x) + var(--space-4x)) * -2));
 }
 
-.avatarList:hover .avatarItem:nth-child(2) {
-  transform: translateX(0);
+.avatarItem:nth-child(4) {
+  transform: translateX(calc((var(--space-2x) + var(--space-4x)) * -3));
 }
 
-.avatarList:hover .avatarItem:nth-child(3) {
+.avatarList:hover .avatarItem:nth-child(2),
+.avatarList:hover .avatarItem:nth-child(3),
+.avatarList:hover .avatarItem:nth-child(4) {
   transform: translateX(0);
 }
 
