@@ -41,6 +41,7 @@ const AuthProvider: React.FC<{
       try {
         const web3auth = new Web3Auth({
           clientId: CLIENT_ID,
+          web3AuthNetwork: "testnet",
           chainConfig: {
             chainNamespace: CHAIN_NAMESPACES.EIP155,
             chainId: "0x41", // okc testnet, has to be hex code
