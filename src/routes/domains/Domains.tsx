@@ -1,9 +1,9 @@
-import * as Tooltip from "@radix-ui/react-tooltip";
 import * as Dialog from "@radix-ui/react-dialog";
+import * as Tooltip from "@radix-ui/react-tooltip";
 
 import { Search } from "../../components/Search";
-import { ReactComponent as Check } from "../../icons/check.svg";
 import { ReactComponent as Cancel } from "../../icons/cancel.svg";
+import { ReactComponent as Check } from "../../icons/check.svg";
 import { ReactComponent as Wallet } from "../../icons/wallet.svg";
 
 import styles from "./domains.module.css";
@@ -111,48 +111,16 @@ export const Domains = () => {
                   <Dialog.Overlay className={styles.DialogOverlay} />
                   <Dialog.Content className={styles.DialogContent}>
                     <Dialog.Title className={styles.DialogTitle}>
-                      Edit profile
+                      Domain Name Registrered
                     </Dialog.Title>
                     <Dialog.Description className={styles.DialogDescription}>
-                      Make changes to your profile here. Click save when you're
-                      done.
+                      <strong>Expiration date:</strong>
+                      <p>
+                        {new Date(
+                          new Date().setFullYear(new Date().getFullYear() + 1)
+                        ).toLocaleDateString()}
+                      </p>
                     </Dialog.Description>
-                    <fieldset className={styles.Fieldset}>
-                      <label className={styles.Label} htmlFor="name">
-                        Name
-                      </label>
-                      <input
-                        className={styles.Input}
-                        id="name"
-                        defaultValue="Pedro Duarte"
-                      />
-                    </fieldset>
-                    <fieldset className={styles.Fieldset}>
-                      <label className={styles.Label} htmlFor="username">
-                        Username
-                      </label>
-                      <input
-                        className={styles.Input}
-                        id="username"
-                        defaultValue="@peduarte"
-                      />
-                    </fieldset>
-                    <div
-                      style={{
-                        display: "flex",
-                        marginTop: 25,
-                        justifyContent: "flex-end",
-                      }}
-                    >
-                      <Dialog.Close asChild>
-                        <button className={styles.Button}>Save changes</button>
-                      </Dialog.Close>
-                    </div>
-                    <Dialog.Close asChild>
-                      <button className={styles.iconButton} aria-label="Close">
-                        <Cancel />
-                      </button>
-                    </Dialog.Close>
                   </Dialog.Content>
                 </Dialog.Portal>
               </Dialog.Root>
