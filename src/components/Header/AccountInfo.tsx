@@ -53,7 +53,7 @@ export const AccountInfo = () => {
             <p>{privateKey}</p>
 
             <Link
-              to="/domains/shiyun"
+              to={`/domains/${crypto.randomUUID()}`}
               className={styles.buttonSecondary}
               style={{ marginTop: "var(--space-gap)" }}
             >

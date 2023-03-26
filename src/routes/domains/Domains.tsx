@@ -150,7 +150,7 @@ export const Domains = () => {
                       <Dialog.Close className={styles.dialogButton}>
                         <button
                           className={styles.buttonSecondary}
-                          onClick={() => viewDomainClick()}
+                          onClick={viewDomainClick}
                         >
                           Your Domains
                         </button>
