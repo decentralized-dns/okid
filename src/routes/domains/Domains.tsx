@@ -1,7 +1,7 @@
 /* eslint-disable */
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Tooltip from "@radix-ui/react-tooltip";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { Search } from "../../components/Search";
@@ -64,21 +64,32 @@ export const Domains = () => {
   const searchQuery = searchParams.get("q");
   const isSearch = Boolean(location.search);
   const [open, setOpen] = useState(false);
+  const [showLoading, setShowLoading] = useState(true);
   const domains = isSearch
-    ? [
-        {
-          id: crypto.randomUUID(),
-          name: `${searchQuery}.okid`,
-          price: 12.99,
-          isAvailable: true,
-        },
-      ]
-    : fakeData;
+  ? [
+      {
+        id: crypto.randomUUID(),
+        name: `${searchQuery}.okid`,
+        price: 12.99,
+        isAvailable: true,
+      },
+    ]
+  : fakeData;
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowLoading(false);
+    }, 1000);
+  }, []);
 
   const viewDomainClick = () => {
     setOpen(false);
     navigate(`/domains/${crypto.randomUUID()}`);
   };
+
+  if (showLoading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <section className={styles.domainNames}>
