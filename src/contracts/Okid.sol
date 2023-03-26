@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.9;
 
 contract Okid {
 
@@ -26,23 +26,25 @@ contract Okid {
     }
 
     uint256 public constant DOMAIN_EXPIRATION_TIME = 31536000; // 1 year
+    uint256 public constant DOMAIN_PRICE = 0.01 ether;
 
     function registerDomain(string memory domainName) public payable {
-        require(msg.value >= DOMAIN_EXPIRATION_TIME, "INSUFFICIENT FUNDS");
+    // need to attach >0.01 ether fund from tx sender while calling this func
+        require(msg.value >= DOMAIN_PRICE, "INSUFFICIENT FUNDS");
         require(domains[domainName].owner == address(0), "DOMAIN ALREADY REGISTERED");
-
         domains[domainName] = Domain(msg.sender, block.timestamp + DOMAIN_EXPIRATION_TIME);
-
+        // return extra ether
+        refundIfOver(DOMAIN_PRICE);
         emit DomainRegistered(domainName, msg.sender, block.timestamp + DOMAIN_EXPIRATION_TIME);
     }
 
     function renewDomain(string memory domainName) public payable {
-        require(msg.value >= DOMAIN_EXPIRATION_TIME, "INSUFFICIENT FUNDS");
+        require(msg.value >= DOMAIN_PRICE, "INSUFFICIENT FUNDS");
         require(domains[domainName].owner != address(0), "DOMAIN NOT REGISTERED");
         require(msg.sender == domains[domainName].owner, "ONLY OWNER CAN RENEW DOMAIN");
 
         domains[domainName].expiration += DOMAIN_EXPIRATION_TIME;
-
+        refundIfOver(DOMAIN_PRICE);
         emit DomainRenewed(domainName, domains[domainName].expiration);
     }
 
@@ -74,5 +76,12 @@ contract Okid {
 
     function getContractOwner() public view returns (address) {
         return owner;
+    }
+
+    function refundIfOver(uint256 totalCost) private {
+        require(msg.value >= totalCost, "Need to send more fund.");
+        if (msg.value > totalCost) {
+            payable(msg.sender).transfer(msg.value - totalCost);
+        }
     }
 }

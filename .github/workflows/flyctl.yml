@@ -1,6 +1,9 @@
 name: flyctl
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -19,4 +22,4 @@ jobs:
           same-branch-only: false
       - run: flyctl deploy --remote-only
         env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_KEY }}
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
