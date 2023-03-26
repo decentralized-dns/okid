@@ -21,7 +21,7 @@ export const Root = () => {
     const init = async () => {
       try {
         const web3auth = new Web3Auth({
-          clientId: CLIENT_ID, // Get your Client ID from Web3Auth Dashboard
+          clientId: "BDQ6I0LSfL5xNw6y5b5vXWwn-g5rlAQvwZMCLhy5ZqV2dW731MaNNsQL-T7-TgZ5PeqK73okS3Z7ExHTtT4bpNo", // Get your Client ID from Web3Auth Dashboard
           chainConfig: {
             chainNamespace: CHAIN_NAMESPACES.EIP155,
             chainId: "0x41", // okc testnet, has to be hex code
@@ -30,6 +30,12 @@ export const Root = () => {
             blockExplorer: "",
             ticker: "OKT",
             tickerName: "OKC",
+          },
+          uiConfig: {
+            theme: "dark",
+            loginMethodsOrder: ["github", "google"],
+            defaultLanguage: "en",
+            appLogo: "https://web3auth.io/images/w3a-L-Favicon-1.svg", // Your App Logo Here
           },
         });
 
