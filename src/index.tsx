@@ -20,6 +20,10 @@ const router = createBrowserRouter([
         path: "/domains",
         element: <Domains />,
       },
+      {
+        path: "/domains/:userName",
+        element: <Domains />,
+      },
     ],
   },
 ]);

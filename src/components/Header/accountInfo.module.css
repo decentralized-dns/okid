@@ -62,9 +62,9 @@
   fill: rgb(55 65 81);
 }
 
+a.buttonSecondary,
 button.buttonSecondary {
   cursor: pointer;
-  margin-top: var(--space-gap);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,6 +78,7 @@ button.buttonSecondary {
     color var(--transition);
 }
 
+a.buttonSecondary:hover,
 button.buttonSecondary:hover {
   color: var(--clr-dark);
   background-color: var(--clr-accent-shade);

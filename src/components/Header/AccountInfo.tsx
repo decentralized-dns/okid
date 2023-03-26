@@ -1,5 +1,6 @@
 import * as Popover from "@radix-ui/react-popover";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { ReactComponent as User } from "../../icons/user.svg";
 
@@ -50,6 +51,14 @@ export const AccountInfo = () => {
 
             <strong>Private Key</strong>
             <p>{privateKey}</p>
+
+            <Link
+              to="/domains/shiyun"
+              className={styles.buttonSecondary}
+              style={{ marginTop: "var(--space-gap)" }}
+            >
+              Your Domains
+            </Link>
 
             <button onClick={logout} className={styles.buttonSecondary}>
               Sign Out

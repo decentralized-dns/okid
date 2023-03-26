@@ -191,6 +191,34 @@ input {
   line-height: 1.5;
 }
 
+button.dialogButton {
+  all: unset;
+}
+
+button.buttonSecondary {
+  align-self: flex-end;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: var(--space-gap);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--space-2x);
+  padding-inline: var(--space-8x);
+  border-radius: var(--r24);
+  color: var(--clr-accent);
+  background-color: transparent;
+  border: 1px solid var(--clr-accent);
+  transition: border var(--transition), background-color var(--transition),
+    color var(--transition);
+}
+
+button.buttonSecondary:hover {
+  color: var(--clr-dark);
+  background-color: var(--clr-accent-shade);
+  border: 1px solid var(--clr-accent-shade);
+}
+
 .Button {
   display: inline-flex;
   align-items: center;

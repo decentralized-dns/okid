@@ -1,5 +1,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Tooltip from "@radix-ui/react-tooltip";
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { Search } from "../../components/Search";
 import { ReactComponent as Cancel } from "../../icons/cancel.svg";
@@ -15,36 +17,30 @@ const fakeData = [
     price: 12.99,
     isAvailable: true,
   },
-  // {
-  //   id: 2,
-  //   name: "example.net",
-  //   price: 12.99,
-  //   isAvailable: true,
-  // },
-  // {
-  //   id: 3,
-  //   name: "example.org",
-  //   price: 12.99,
-  //   isAvailable: true,
-  // },
-  // {
-  //   id: 4,
-  //   name: "example.info",
-  //   price: 12.99,
-  //   isAvailable: false,
-  // },
-  // {
-  //   id: 5,
-  //   name: "example.biz",
-  //   price: 12.99,
-  //   isAvailable: true,
-  // },
-  // {
-  //   id: 6,
-  //   name: "example.us",
-  //   price: 12.99,
-  //   isAvailable: false,
-  // },
+  {
+    id: 2,
+    name: "web3.okid",
+    price: 12.99,
+    isAvailable: true,
+  },
+  {
+    id: 3,
+    name: "okidteam.okid",
+    price: 12.99,
+    isAvailable: true,
+  },
+  {
+    id: 4,
+    name: "reactjs.okid",
+    price: 12.99,
+    isAvailable: false,
+  },
+  {
+    id: 5,
+    name: "okx.okid",
+    price: 12.99,
+    isAvailable: true,
+  },
 ];
 
 // export async function loader({ request }) {
@@ -55,12 +51,23 @@ const fakeData = [
 // }
 
 export const Domains = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isSearch = Boolean(location.search);
+  const domains = isSearch ? [fakeData[0]] : fakeData;
+  const [open, setOpen] = useState(false);
+
+  const viewDomainClick = () => {
+    setOpen(false);
+    navigate("/domains/shiyun");
+  };
+
   return (
     <section className={styles.domainNames}>
       <Search />
 
       <ul className={styles.domainNameList}>
-        {fakeData.map((domainName) => (
+        {domains.map((domainName) => (
           <li key={domainName.id} className={styles.domainNameListItem}>
             <Tooltip.Provider delayDuration={300}>
               <Tooltip.Root>
@@ -99,11 +106,11 @@ export const Domains = () => {
             <h2 className={styles.domainName}>{domainName.name}</h2>
 
             {domainName.isAvailable && (
-              <Dialog.Root>
+              <Dialog.Root open={open} onOpenChange={setOpen}>
                 <Dialog.Trigger asChild>
                   <button className={styles.buyButton}>
                     <Wallet />
-                    <span>Register</span>
+                    <span>{isSearch ? "Register" : "Renew"}</span>
                   </button>
                 </Dialog.Trigger>
 
@@ -111,7 +118,7 @@ export const Domains = () => {
                   <Dialog.Overlay className={styles.DialogOverlay} />
                   <Dialog.Content className={styles.DialogContent}>
                     <Dialog.Title className={styles.DialogTitle}>
-                      Domain Name Registrered
+                      Domain Name {isSearch ? "Registrered" : "Renewed"}
                     </Dialog.Title>
                     <Dialog.Description className={styles.DialogDescription}>
                       <strong>Expiration date:</strong>
@@ -121,6 +128,16 @@ export const Domains = () => {
                         ).toLocaleDateString()}
                       </p>
                     </Dialog.Description>
+                    {isSearch && (
+                      <Dialog.Close className={styles.dialogButton}>
+                        <button
+                          className={styles.buttonSecondary}
+                          onClick={viewDomainClick}
+                        >
+                          Your Domains
+                        </button>
+                      </Dialog.Close>
+                    )}
                   </Dialog.Content>
                 </Dialog.Portal>
               </Dialog.Root>
