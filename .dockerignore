@@ -1,0 +1,25 @@
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+.DS_Store
+.swp
+.approvals
+.torus.json
+coverage
+/tags
+
+# Ignore node_modules
+node_modules/
+
+# Ingnore hardhat files
+artifacts/
+cache/
+
+# Local build
+build/
+
+# Git stuff
+.github/
+.git
+.gitignore
