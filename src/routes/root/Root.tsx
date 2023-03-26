@@ -11,7 +11,7 @@ export const Root = () => {
       <div className={styles.container}>
         <div className={styles.app}>
           <Header />
-  
+
           <main className={styles.main}>
             <Outlet />
           </main>
