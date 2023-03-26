@@ -28,7 +28,7 @@ function Footer() {
     <footer className={styles.footer}>
       <Logo hasText={false} size="s" />
       <small>
-        © {new Date().getFullYear()} DDNS team. All Rights Reserved.
+        © {new Date().getFullYear()} OkID team. All Rights Reserved.
       </small>
     </footer>
   );

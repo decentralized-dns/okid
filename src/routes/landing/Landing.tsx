@@ -22,10 +22,10 @@ function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.title}>
-        <h1 className={styles.heading}>Decentralized Domain Name Services</h1>
+        <h1 className={styles.heading}>OkID</h1>
         <p className={styles.description}>
-          Secure. Interoperable. Catalytic. Unleashing Business Potential with
-          the One-Stop Decentralized Identity Solution - DDNS
+          Secure. Interoperable. Catalytic.
+          Enterprises DID management platform built on account abstraction.
         </p>
         <Search />
       </div>
@@ -65,22 +65,20 @@ function FeatureCards() {
   return (
     <section className={styles.featureCards}>
       <Card
-        title="Fast onboard"
-        description="Seamless onboarding experience for both web2 and web3 users with
-          mainstream auth integration."
+        title="One-Click Web3 domain Host"
+        description="Enables users to easily register Web3 Domains."
         icon={<Flash className={styles.cardIcon} />}
       />
 
       <Card
-        title="One for all"
-        description="A single, secure identity across web3 with control over privacy and
-          data sharing."
+        title="Wallet-Less Web3 authentication"
+        description="Securely access Web3 applications without traditional cryptocurrency wallet."
         icon={<Connect className={styles.cardIcon} />}
       />
 
       <Card
-        title="XYZ"
-        description="lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam"
+        title="One-Stop Enterprise DID Solution"
+        description="Enterprises DID management platform that provides web3 domain hosting and account abstraction."
         bg={<img src={circuitBoard} alt="" />}
         className={styles.largeCard}
       />
