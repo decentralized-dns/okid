@@ -12,6 +12,7 @@ const CLIENT_ID = process.env.WEB3AUTH_CLIENT_ID || "";
 
 export const Root = () => {
   const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [provider, setProvider] = useState<SafeEventEmitterProvider | null>(
     null
   );
@@ -139,6 +140,7 @@ export const Root = () => {
     init();
   }, []);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const login = async () => {
     if (!web3auth) {
       uiConsole("web3auth not initialized yet");
@@ -160,6 +162,7 @@ export const Root = () => {
     uiConsole(idToken);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const getUserInfo = async () => {
     if (!web3auth) {
       uiConsole("web3auth not initialized yet");
@@ -169,6 +172,7 @@ export const Root = () => {
     uiConsole(user);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const logout = async () => {
     if (!web3auth) {
       uiConsole("web3auth not initialized yet");
