@@ -20,7 +20,7 @@ interface AuthContextProps {
   getBalance: () => Promise<string | undefined>;
   sendTransaction: () => Promise<void>;
   signMessage: () => Promise<string | undefined>;
-  getPrivateKey: () => Promise<void>;
+  getPrivateKey: () => Promise<any>;
 }
 
 const CLIENT_ID =

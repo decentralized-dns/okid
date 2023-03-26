@@ -1,17 +1,16 @@
 import { useAuth } from "../../contexts/AuthContext";
 import { Logo } from "../Logo";
+import { AccountInfo } from "./AccountInfo";
 import styles from "./header.module.css";
 
 export const Header = () => {
-  const { provider, login, logout } = useAuth();
+  const { provider, login } = useAuth();
 
   return (
     <header className={styles.header}>
       <Logo />
       {provider ? (
-        <button className={styles.button} onClick={logout}>
-          Sign Out
-        </button>
+        <AccountInfo />
       ) : (
         <button className={styles.button} onClick={login}>
           Sign In
