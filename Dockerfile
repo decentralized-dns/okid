@@ -4,7 +4,7 @@ FROM node:alpine as builder
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install --production
+RUN npm install
 COPY . .
 # build
 RUN npm run build
