@@ -22,7 +22,7 @@ function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.title}>
-        <h1 className={styles.heading}>Open Key Infrastructure for Decentralized Name System</h1>
+        <h1 className={styles.heading}>OkID</h1>
         <p className={styles.description}>
           Secure. Interoperable. Catalytic. Unleashing Business Potential with
           the One-Stop Decentralized Identity Solution - OkID
