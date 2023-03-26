@@ -2,7 +2,7 @@
   "name": "ddns",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://decentralized-dns.github.io/ddns/",
+  "homepage": "https://decentralized-dns.github.io/",
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.3",
     "@radix-ui/react-tooltip": "^1.0.5",
