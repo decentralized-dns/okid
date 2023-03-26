@@ -37,6 +37,10 @@ describe("Okid contract", function () {
       await hardhatOkid.registerDomain("bar.okid", {value: ethers.utils.parseEther("0.5")});
       expect(await hardhatOkid.getDomainOwner("bar.okid")).to.equal(owner.address);
       expect(await hardhatOkid.getDomainExpiration("bar.okid")).to.be.closeTo(currentTimestamp+ 31536000, 10);
+
+      const domain = await hardhatOkid.getDomain("bar.okid");
+      expect(domain.owner).to.equal(owner.address);
+      expect(domain.expiration).to.be.closeTo(currentTimestamp+ 31536000, 10);
     });
   });
 

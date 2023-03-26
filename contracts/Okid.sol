@@ -56,6 +56,10 @@ contract Okid {
         emit DomainRevoked(domainName);
     }
 
+    function getDomain(string memory domainName) public view returns (Domain memory) {
+        return domains[domainName];
+    }
+
     function getDomainOwner(string memory domainName) public view returns (address) {
         return domains[domainName].owner;
     }
