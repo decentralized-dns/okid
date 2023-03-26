@@ -1,10 +1,10 @@
-import { Search } from "../../components/Search";
+import circuitBoard from "../../assets/circuit-board.svg";
+import { ReactComponent as OkxLogo } from "../../assets/okx-logo.svg";
 import { AvatarList } from "../../components/AvatarList";
 import { Card } from "../../components/Card";
-import { ReactComponent as OkxLogo } from "../../assets/okx-logo.svg";
-import { ReactComponent as Flash } from "../../icons/flash.svg";
+import { Search } from "../../components/Search";
 import { ReactComponent as Connect } from "../../icons/connect.svg";
-import circuitBoard from "../../assets/circuit-board.svg";
+import { ReactComponent as Flash } from "../../icons/flash.svg";
 
 import styles from "./landing.module.css";
 
@@ -25,13 +25,13 @@ function Hero() {
         <h1 className={styles.heading}>Decentralized Domain Name Services</h1>
         <p className={styles.description}>
           Secure. Interoperable. Catalytic. Unleashing Business Potential with
-          the One-Stop Decentralized Identity Solution - DDNS
+          the One-Stop Decentralized Identity Solution - OkID
         </p>
         <Search />
       </div>
 
       <div className={styles.teamIntro}>
-        <h3>DDNS Team</h3>
+        <h3>OkID Team</h3>
         <span className={styles.teamIntroDivider} />
         <AvatarList />
       </div>
