@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 env:
   OKCMainnet: "https://exchainrpc.okex.org/"
@@ -27,5 +28,6 @@ jobs:
     - run: npm ci
     - run: npm run hardhat:compile
     - run: npm run hardhat:test
-    # - name: deploy to testnet
-    #   run: make deploy
+    - name: deploy to testnet
+      if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+      run: make deploy
