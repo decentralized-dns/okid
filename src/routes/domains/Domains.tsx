@@ -8,7 +8,8 @@ import { Search } from "../../components/Search";
 import { ReactComponent as Cancel } from "../../icons/cancel.svg";
 import { ReactComponent as Check } from "../../icons/check.svg";
 import { ReactComponent as Wallet } from "../../icons/wallet.svg";
-
+import { AuthProvider, useAuth } from "../../contexts/AuthContext";
+import Web3 from 'web3';
 import styles from "./domains.module.css";
 
 const fakeData = [
@@ -66,10 +67,35 @@ export const Domains = () => {
   const domains = isSearch ? [fakeData[0]] : fakeData;
   const [open, setOpen] = useState(false);
 
+  // Smart contract interaction prepare
+  const {provider, getAccounts} = useAuth();
+  const web3 = new Web3(provider as any);
+  const contractABIJson = require('../../contracts/Okid.json');
+  const contractAddressJson = require('../../contracts/contract-address.json');
+  const contractABI = contractABIJson.abi;
+  const contractAddress = contractAddressJson.Okid;
+
   const viewDomainClick = (domainName: any) => {
     setOpen(false);
     navigate(`/domains/${domainName.name}`);
   };
+
+  async function handleRegister() {
+    // This function will be executed when the button is clicked
+    console.log('Button clicked!');
+    console.log('contractABI', contractABI);
+    console.log('contractAddress',contractAddress);
+    const account = await getAccounts()
+    console.log(account)
+    const contract = new web3.eth.Contract(contractABI, contractAddress);
+    // let contract = new ethers.Contract(contractAddress, contractABI, signer);
+    // await contract.registerDomain("hackathon.okid", { value: ethers.utils.parseEther("0.07")});
+    console.log("contract", contract)
+    // test below
+    await contract.methods.registerDomain("abc.eth").call()
+    await contract.methods.getContractOwner().call()
+    await contract.methods.getDomainOwner("abc.eth").call()
+  }
 
   return (
     <section className={styles.domainNames}>
@@ -117,7 +143,7 @@ export const Domains = () => {
             {domainName.isAvailable && (
               <Dialog.Root open={open} onOpenChange={setOpen}>
                 <Dialog.Trigger asChild>
-                  <button className={styles.buyButton}>
+                  <button className={styles.buyButton} onClick={handleRegister}>
                     <Wallet />
                     <span>{isSearch ? "Register" : "Renew"}</span>
                   </button>
