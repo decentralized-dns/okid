@@ -15,36 +15,18 @@ const fakeData = [
     price: 12.99,
     isAvailable: true,
   },
-  // {
-  //   id: 2,
-  //   name: "example.net",
-  //   price: 12.99,
-  //   isAvailable: true,
-  // },
-  // {
-  //   id: 3,
-  //   name: "example.org",
-  //   price: 12.99,
-  //   isAvailable: true,
-  // },
-  // {
-  //   id: 4,
-  //   name: "example.info",
-  //   price: 12.99,
-  //   isAvailable: false,
-  // },
-  // {
-  //   id: 5,
-  //   name: "example.biz",
-  //   price: 12.99,
-  //   isAvailable: true,
-  // },
-  // {
-  //   id: 6,
-  //   name: "example.us",
-  //   price: 12.99,
-  //   isAvailable: false,
-  // },
+  {
+    id: 2,
+    name: "awesome.okid",
+    price: 12.99,
+    isAvailable: true,
+  },
+  {
+    id: 3,
+    name: "happy.okid",
+    price: 12.99,
+    isAvailable: true,
+  },
 ];
 
 // export async function loader({ request }) {
