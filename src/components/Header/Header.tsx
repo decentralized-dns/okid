@@ -1,11 +1,15 @@
 import { Logo } from "../Logo";
 import styles from "./header.module.css";
 
-export const Header: React.FC = () => {
+type HeaderProps = {
+  authenticateUser: () => void;
+};
+
+export const Header = ({ authenticateUser }: HeaderProps) => {
   return (
     <header className={styles.header}>
       <Logo />
-      <button className={styles.button} onClick={() => console.log("sign in")}>
+      <button className={styles.button} onClick={authenticateUser}>
         Sign In
       </button>
     </header>
