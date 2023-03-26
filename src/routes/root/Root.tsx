@@ -21,7 +21,7 @@ export const Root = () => {
     const init = async () => {
       try {
         const web3auth = new Web3Auth({
-          clientId: "BDQ6I0LSfL5xNw6y5b5vXWwn-g5rlAQvwZMCLhy5ZqV2dW731MaNNsQL-T7-TgZ5PeqK73okS3Z7ExHTtT4bpNo", // Get your Client ID from Web3Auth Dashboard
+          clientId: CLIENT_ID,
           chainConfig: {
             chainNamespace: CHAIN_NAMESPACES.EIP155,
             chainId: "0x41", // okc testnet, has to be hex code
