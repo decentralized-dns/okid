@@ -5,7 +5,7 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useState,
+  useState
 } from "react";
 
 import RPC from "../web3RPC";
@@ -24,7 +24,7 @@ interface AuthContextProps {
 }
 
 const CLIENT_ID =
-  "BDQ6I0LSfL5xNw6y5b5vXWwn-g5rlAQvwZMCLhy5ZqV2dW731MaNNsQL-T7-TgZ5PeqK73okS3Z7ExHTtT4bpNo";
+  "BJy-BUFmF4TrHaxi3q9UzWNidMYSXPpJjlqdA6QYr3veCAuwv-eqE6uFzqErCcUZ_5MupITqIa43jYI53iZXW7g";
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
