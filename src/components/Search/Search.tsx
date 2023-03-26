@@ -1,6 +1,5 @@
 import { Form } from "react-router-dom";
 import { ReactComponent as ArrowRight } from "../../icons/arrow-right.svg";
-
 import styles from "./search.module.css";
 
 export const Search = () => {
@@ -23,6 +22,7 @@ export const Search = () => {
       <button type="submit" className={styles.searchButton}>
         <ArrowRight />
       </button>
+      <input type="hidden" name="search" value="true" />
     </Form>
   );
 };

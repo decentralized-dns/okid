@@ -1,3 +1,4 @@
+/* eslint-disable */
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { useState } from "react";
@@ -59,13 +60,15 @@ const fakeData = [
 export const Domains = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchQuery = searchParams.get("q");
   const isSearch = Boolean(location.search);
   const domains = isSearch ? [fakeData[0]] : fakeData;
   const [open, setOpen] = useState(false);
 
-  const viewDomainClick = () => {
+  const viewDomainClick = (domainName: any) => {
     setOpen(false);
-    navigate("/domains/shiyun");
+    navigate(`/domains/${domainName.name}`);
   };
 
   return (
@@ -138,7 +141,7 @@ export const Domains = () => {
                       <Dialog.Close className={styles.dialogButton}>
                         <button
                           className={styles.buttonSecondary}
-                          onClick={viewDomainClick}
+                          onClick={() => viewDomainClick(domainName)}
                         >
                           Your Domains
                         </button>
