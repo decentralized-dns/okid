@@ -66,114 +66,129 @@ export const Domains = () => {
   const [open, setOpen] = useState(false);
   const [showLoading, setShowLoading] = useState(true);
   const domains = isSearch
-  ? [
-      {
-        id: crypto.randomUUID(),
-        name: `${searchQuery}.okid`,
-        price: 12.99,
-        isAvailable: true,
-      },
-    ]
-  : fakeData;
+    ? [
+        {
+          id: crypto.randomUUID(),
+          name: `${searchQuery}.okid`,
+          price: 12.99,
+          isAvailable: true,
+        },
+      ]
+    : fakeData;
 
   useEffect(() => {
     setTimeout(() => {
       setShowLoading(false);
     }, 1000);
-  }, []);
+  }, [isSearch]);
 
   const viewDomainClick = () => {
     setOpen(false);
     navigate(`/domains/${crypto.randomUUID()}`);
+    setShowLoading(true);
   };
-
-  if (showLoading) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <section className={styles.domainNames}>
       <Search />
 
-      <ul className={styles.domainNameList}>
-        {domains.map((domainName: any) => (
-          <li key={domainName.id} className={styles.domainNameListItem}>
-            <Tooltip.Provider delayDuration={300}>
-              <Tooltip.Root>
-                <Tooltip.Trigger asChild>
-                  <span
-                    className={styles.domainNameIcon}
-                    style={{
-                      color: domainName.isAvailable
-                        ? "var(--clr-success)"
-                        : "var(--clr-light-shade)",
-                      border: `2px solid ${
-                        domainName.isAvailable
+      {showLoading ? (
+        <div
+          style={{
+            height: "100%",
+            width: "100%",
+            display: "grid",
+            placeItems: "center",
+          }}
+        >
+          <div className="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      ) : (
+        <ul className={styles.domainNameList}>
+          {domains.map((domainName: any) => (
+            <li key={domainName.id} className={styles.domainNameListItem}>
+              <Tooltip.Provider delayDuration={300}>
+                <Tooltip.Root>
+                  <Tooltip.Trigger asChild>
+                    <span
+                      className={styles.domainNameIcon}
+                      style={{
+                        color: domainName.isAvailable
                           ? "var(--clr-success)"
-                          : "var(--clr-light-shade)"
-                      }`,
-                    }}
-                  >
-                    {domainName.isAvailable ? <Check /> : <Cancel />}
-                  </span>
-                </Tooltip.Trigger>
-                <Tooltip.Portal>
-                  <Tooltip.Content
-                    className={styles.TooltipContent}
-                    sideOffset={5}
-                    collisionPadding={5}
-                  >
-                    {domainName.isAvailable
-                      ? "Congratulations! This domain name is available."
-                      : `Current domain registration expires on 12/31/2021.`}
-                    <Tooltip.Arrow className={styles.TooltipArrow} />
-                  </Tooltip.Content>
-                </Tooltip.Portal>
-              </Tooltip.Root>
-            </Tooltip.Provider>
+                          : "var(--clr-light-shade)",
+                        border: `2px solid ${
+                          domainName.isAvailable
+                            ? "var(--clr-success)"
+                            : "var(--clr-light-shade)"
+                        }`,
+                      }}
+                    >
+                      {domainName.isAvailable ? <Check /> : <Cancel />}
+                    </span>
+                  </Tooltip.Trigger>
+                  <Tooltip.Portal>
+                    <Tooltip.Content
+                      className={styles.TooltipContent}
+                      sideOffset={5}
+                      collisionPadding={5}
+                    >
+                      {domainName.isAvailable
+                        ? "Congratulations! This domain name is available."
+                        : `Current domain registration expires on 12/31/2021.`}
+                      <Tooltip.Arrow className={styles.TooltipArrow} />
+                    </Tooltip.Content>
+                  </Tooltip.Portal>
+                </Tooltip.Root>
+              </Tooltip.Provider>
 
-            <h2 className={styles.domainName}>{domainName.name}</h2>
+              <h2 className={styles.domainName}>{domainName.name}</h2>
 
-            {domainName.isAvailable && (
-              <Dialog.Root open={open} onOpenChange={setOpen}>
-                <Dialog.Trigger asChild>
-                  <button className={styles.buyButton}>
-                    <Wallet />
-                    <span>{isSearch ? "Register" : "Renew"}</span>
-                  </button>
-                </Dialog.Trigger>
+              {domainName.isAvailable && (
+                <Dialog.Root open={open} onOpenChange={setOpen}>
+                  <Dialog.Trigger asChild>
+                    <button className={styles.buyButton}>
+                      <Wallet />
+                      <span>{isSearch ? "Register" : "Renew"}</span>
+                    </button>
+                  </Dialog.Trigger>
 
-                <Dialog.Portal>
-                  <Dialog.Overlay className={styles.DialogOverlay} />
-                  <Dialog.Content className={styles.DialogContent}>
-                    <Dialog.Title className={styles.DialogTitle}>
-                      Domain Name {isSearch ? "Registrered" : "Renewed"}
-                    </Dialog.Title>
-                    <Dialog.Description className={styles.DialogDescription}>
-                      <strong>Expiration date:</strong>
-                      <p>
-                        {new Date(
-                          new Date().setFullYear(new Date().getFullYear() + 1)
-                        ).toLocaleDateString()}
-                      </p>
-                    </Dialog.Description>
-                    {isSearch && (
-                      <Dialog.Close className={styles.dialogButton}>
-                        <button
-                          className={styles.buttonSecondary}
-                          onClick={viewDomainClick}
-                        >
-                          Your Domains
-                        </button>
-                      </Dialog.Close>
-                    )}
-                  </Dialog.Content>
-                </Dialog.Portal>
-              </Dialog.Root>
-            )}
-          </li>
-        ))}
-      </ul>
+                  <Dialog.Portal>
+                    <Dialog.Overlay className={styles.DialogOverlay} />
+                    <Dialog.Content className={styles.DialogContent}>
+                      <Dialog.Title className={styles.DialogTitle}>
+                        Domain Name {isSearch ? "Registrered" : "Renewed"}
+                      </Dialog.Title>
+                      <Dialog.Description className={styles.DialogDescription}>
+                        <strong>Expiration date:</strong>
+                        <p>
+                          {new Date(
+                            new Date().setFullYear(new Date().getFullYear() + 1)
+                          ).toLocaleDateString()}
+                        </p>
+                      </Dialog.Description>
+                      {isSearch && (
+                        <Dialog.Close className={styles.dialogButton}>
+                          <button
+                            className={styles.buttonSecondary}
+                            onClick={viewDomainClick}
+                          >
+                            Your Domains
+                          </button>
+                        </Dialog.Close>
+                      )}
+                    </Dialog.Content>
+                  </Dialog.Portal>
+                </Dialog.Root>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
   );
 };
