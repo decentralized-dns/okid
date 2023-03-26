@@ -8,7 +8,7 @@ import { Header } from "../../components/Header";
 import { Logo } from "../../components/Logo";
 import styles from "./root.module.css";
 
-const CLIENT_ID = process.env.WEB3AUTH_CLIENT_ID || "";
+const CLIENT_ID = "BDQ6I0LSfL5xNw6y5b5vXWwn-g5rlAQvwZMCLhy5ZqV2dW731MaNNsQL-T7-TgZ5PeqK73okS3Z7ExHTtT4bpNo";
 
 export const Root = () => {
   const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null);
