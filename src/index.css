@@ -86,6 +86,7 @@ h6 {
   --clr-dark-tint: hsl(210deg 15% 10%);
   --clr-accent: #bcff2f;
   --clr-accent-shade: #a4f200;
+  --clr-success: #0E9F6E;
 
   /* Font Weights */
   --fw-regular: 400;
