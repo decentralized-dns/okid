@@ -12,7 +12,7 @@ const CLIENT_ID = process.env.WEB3AUTH_CLIENT_ID || "";
 
 export const Root = () => {
   const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null);
-  const [setProvider] = useState<SafeEventEmitterProvider | null>(
+  const [provider, setProvider] = useState<SafeEventEmitterProvider | null>(
     null
   );
 
@@ -139,15 +139,15 @@ export const Root = () => {
     init();
   }, []);
 
-  // const login = async () => {
-  //   if (!web3auth) {
-  //     uiConsole("web3auth not initialized yet");
-  //     return;
-  //   }
-  //   const web3authProvider = await web3auth.connect();
-  //   setProvider(web3authProvider);
-  //   uiConsole("Logged in Successfully!");
-  // };
+  const login = async () => {
+    if (!web3auth) {
+      uiConsole("web3auth not initialized yet");
+      return;
+    }
+    const web3authProvider = await web3auth.connect();
+    setProvider(web3authProvider);
+    uiConsole("Logged in Successfully!");
+  };
 
   const authenticateUser = async () => {
     if (!web3auth) {
@@ -160,23 +160,23 @@ export const Root = () => {
     uiConsole(idToken);
   };
 
-  // const getUserInfo = async () => {
-  //   if (!web3auth) {
-  //     uiConsole("web3auth not initialized yet");
-  //     return;
-  //   }
-  //   const user = await web3auth.getUserInfo();
-  //   uiConsole(user);
-  // };
+  const getUserInfo = async () => {
+    if (!web3auth) {
+      uiConsole("web3auth not initialized yet");
+      return;
+    }
+    const user = await web3auth.getUserInfo();
+    uiConsole(user);
+  };
 
-  // const logout = async () => {
-  //   if (!web3auth) {
-  //     uiConsole("web3auth not initialized yet");
-  //     return;
-  //   }
-  //   await web3auth.logout();
-  //   setProvider(null);
-  // };
+  const logout = async () => {
+    if (!web3auth) {
+      uiConsole("web3auth not initialized yet");
+      return;
+    }
+    await web3auth.logout();
+    setProvider(null);
+  };
 
   // const showWCM = async () => {
   //   if (!torusPlugin) {
