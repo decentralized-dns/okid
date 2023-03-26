@@ -24,7 +24,7 @@ export const Root = () => {
           clientId: CLIENT_ID, // Get your Client ID from Web3Auth Dashboard
           chainConfig: {
             chainNamespace: CHAIN_NAMESPACES.EIP155,
-            chainId: "65", // okc testnet
+            chainId: "0x41", // okc testnet, has to be hex code
             rpcTarget: "https://exchaintestrpc.okex.org/",
             displayName: "OKC Testnet",
             blockExplorer: "",
