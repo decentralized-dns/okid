@@ -25,6 +25,12 @@ const fakeData = [
   },
   {
     id: 3,
+    name: "awesome.okid",
+    price: 12.99,
+    isAvailable: true,
+  },
+  {
+    id: 3,
     name: "okidteam.okid",
     price: 12.99,
     isAvailable: true,
