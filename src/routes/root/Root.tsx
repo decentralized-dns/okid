@@ -7,123 +7,40 @@ import { Outlet } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Logo } from "../../components/Logo";
 import styles from "./root.module.css";
+import RPC from "./web3RPC"; // for using web3.js
 
-const CLIENT_ID = process.env.WEB3AUTH_CLIENT_ID || "";
+const CLIENT_ID = "BDQ6I0LSfL5xNw6y5b5vXWwn-g5rlAQvwZMCLhy5ZqV2dW731MaNNsQL-T7-TgZ5PeqK73okS3Z7ExHTtT4bpNo";
 
 export const Root = () => {
   const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [provider, setProvider] = useState<SafeEventEmitterProvider | null>(
     null
   );
+  const [account, setAccount] = useState(null);
+  const [pkey, setPkey] = useState(null);
 
   useEffect(() => {
     const init = async () => {
       try {
         const web3auth = new Web3Auth({
-          clientId: CLIENT_ID, // Get your Client ID from Web3Auth Dashboard
+          clientId: CLIENT_ID,
           chainConfig: {
             chainNamespace: CHAIN_NAMESPACES.EIP155,
-            chainId: "65", // okc testnet
+            chainId: "0x41", // okc testnet, has to be hex code
             rpcTarget: "https://exchaintestrpc.okex.org/",
             displayName: "OKC Testnet",
             blockExplorer: "",
             ticker: "OKT",
             tickerName: "OKC",
           },
+          uiConfig: {
+            theme: "dark",
+            loginMethodsOrder: ["github", "google"],
+            defaultLanguage: "en",
+            appLogo: "https://web3auth.io/images/w3a-L-Favicon-1.svg", // Your App Logo Here
+          },
         });
-
-        // const openloginAdapter = new OpenloginAdapter({
-        //   loginSettings: {
-        //     mfaLevel: "default",
-        //   },
-        //   adapterSettings: {
-        //     whiteLabel: {
-        //       name: "Your app Name",
-        //       logoLight: "https://web3auth.io/images/w3a-L-Favicon-1.svg",
-        //       logoDark: "https://web3auth.io/images/w3a-D-Favicon-1.svg",
-        //       defaultLanguage: "en",
-        //       dark: true, // whether to enable dark mode. defaultValue: false
-        //     },
-        //   },
-        // });
-        // web3auth.configureAdapter(openloginAdapter);
-
-        // // plugins and adapters are optional and can be added as per your requirement
-        // // read more about plugins here: https://web3auth.io/docs/sdk/web/plugins/
-
-        // // adding torus wallet connector plugin
-
-        // const torusPlugin = new TorusWalletConnectorPlugin({
-        //   torusWalletOpts: {},
-        //   walletInitOptions: {
-        //     whiteLabel: {
-        //       theme: { isDark: true, colors: { primary: "#00a8ff" } },
-        //       logoDark: "https://web3auth.io/images/w3a-L-Favicon-1.svg",
-        //       logoLight: "https://web3auth.io/images/w3a-D-Favicon-1.svg",
-        //     },
-        //     useWalletConnect: true,
-        //     enableLogging: true,
-        //   },
-        // });
-        // setTorusPlugin(torusPlugin);
-        // await web3auth.addPlugin(torusPlugin);
-
-        // // read more about adapters here: https://web3auth.io/docs/sdk/web/adapters/
-
-        // // adding wallet connect v1 adapter
-        // // const walletConnectV1Adapter = new WalletConnectV1Adapter({
-        // //   adapterSettings: {
-        // //     bridge: "https://bridge.walletconnect.org",
-        // //   },
-        // //   clientId,
-        // // });
-
-        // // web3auth.configureAdapter(walletConnectV1Adapter);
-
-        // // adding wallet connect v2 adapter
-        // const defaultWcSettings = await getWalletConnectV2Settings(
-        //   "eip155",
-        //   [1, 137, 5],
-        //   "04309ed1007e77d1f119b85205bb779d"
-        // );
-        // const walletConnectV2Adapter = new WalletConnectV2Adapter({
-        //   adapterSettings: { ...defaultWcSettings.adapterSettings },
-        //   loginSettings: { ...defaultWcSettings.loginSettings },
-        // });
-
-        // web3auth.configureAdapter(walletConnectV2Adapter);
-
-        // // adding metamask adapter
-        // const metamaskAdapter = new MetamaskAdapter({
-        //   clientId,
-        //   sessionTime: 3600, // 1 hour in seconds
-        //   web3AuthNetwork: "cyan",
-        //   chainConfig: {
-        //     chainNamespace: CHAIN_NAMESPACES.EIP155,
-        //     chainId: "0x1",
-        //     rpcTarget: "https://rpc.ankr.com/eth", // This is the public RPC we have added, please pass on your own endpoint while creating an app
-        //   },
-        // });
-        // // we can change the above settings using this function
-        // metamaskAdapter.setAdapterSettings({
-        //   sessionTime: 86400, // 1 day in seconds
-        //   chainConfig: {
-        //     chainNamespace: CHAIN_NAMESPACES.EIP155,
-        //     chainId: "0x1",
-        //     rpcTarget: "https://rpc.ankr.com/eth", // This is the public RPC we have added, please pass on your own endpoint while creating an app
-        //   },
-        //   web3AuthNetwork: "cyan",
-        // });
-
-        // // it will add/update  the metamask adapter in to web3auth class
-        // web3auth.configureAdapter(metamaskAdapter);
-
-        // const torusWalletAdapter = new TorusWalletAdapter({
-        //   clientId,
-        // });
-
-        // // it will add/update  the torus-evm adapter in to web3auth class
-        // web3auth.configureAdapter(torusWalletAdapter);
 
         setWeb3auth(web3auth);
 
@@ -139,6 +56,7 @@ export const Root = () => {
     init();
   }, []);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const login = async () => {
     if (!web3auth) {
       uiConsole("web3auth not initialized yet");
@@ -160,6 +78,7 @@ export const Root = () => {
     uiConsole(idToken);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const getUserInfo = async () => {
     if (!web3auth) {
       uiConsole("web3auth not initialized yet");
@@ -169,6 +88,7 @@ export const Root = () => {
     uiConsole(user);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const logout = async () => {
     if (!web3auth) {
       uiConsole("web3auth not initialized yet");
@@ -239,55 +159,58 @@ export const Root = () => {
   //   uiConsole("Chain Switched");
   // };
 
-  // const getAccounts = async () => {
-  //   if (!provider) {
-  //     uiConsole("provider not initialized yet");
-  //     return;
-  //   }
-  //   const rpc = new RPC(provider);
-  //   const address = await rpc.getAccounts();
-  //   uiConsole(address);
-  // };
+  const getAccounts = async () => {
+    if (!provider) {
+      uiConsole("provider not initialized yet");
+      return;
+    }
+    const rpc = new RPC(provider);
+    console.log("rpc:",rpc)
+    const address = await rpc.getAccounts();
+    setAccount(address);
+    uiConsole(address);
+  };
 
-  // const getBalance = async () => {
-  //   if (!provider) {
-  //     uiConsole("provider not initialized yet");
-  //     return;
-  //   }
-  //   const rpc = new RPC(provider);
-  //   const balance = await rpc.getBalance();
-  //   uiConsole(balance);
-  // };
+  const getBalance = async () => {
+    if (!provider) {
+      uiConsole("provider not initialized yet");
+      return;
+    }
+    const rpc = new RPC(provider);
+    const balance = await rpc.getBalance();
+    uiConsole(balance);
+  };
 
-  // const sendTransaction = async () => {
-  //   if (!provider) {
-  //     uiConsole("provider not initialized yet");
-  //     return;
-  //   }
-  //   const rpc = new RPC(provider);
-  //   const receipt = await rpc.sendTransaction();
-  //   uiConsole(receipt);
-  // };
+  const sendTransaction = async () => {
+    if (!provider) {
+      uiConsole("provider not initialized yet");
+      return;
+    }
+    const rpc = new RPC(provider);
+    const receipt = await rpc.sendTransaction();
+    uiConsole(receipt);
+  };
 
-  // const signMessage = async () => {
-  //   if (!provider) {
-  //     uiConsole("provider not initialized yet");
-  //     return;
-  //   }
-  //   const rpc = new RPC(provider);
-  //   const signedMessage = await rpc.signMessage();
-  //   uiConsole(signedMessage);
-  // };
+  const signMessage = async () => {
+    if (!provider) {
+      uiConsole("provider not initialized yet");
+      return;
+    }
+    const rpc = new RPC(provider);
+    const signedMessage = await rpc.signMessage();
+    uiConsole(signedMessage);
+  };
 
-  // const getPrivateKey = async () => {
-  //   if (!provider) {
-  //     uiConsole("provider not initialized yet");
-  //     return;
-  //   }
-  //   const rpc = new RPC(provider);
-  //   const privateKey = await rpc.getPrivateKey();
-  //   uiConsole(privateKey);
-  // };
+  const getPrivateKey = async () => {
+    if (!provider) {
+      uiConsole("provider not initialized yet");
+      return;
+    }
+    const rpc = new RPC(provider);
+    const privateKey = await rpc.getPrivateKey();
+    setPkey(privateKey);
+    uiConsole(privateKey);
+  };
 
   // const changeNetwork = async () => {
   //   if (!provider) {
@@ -298,6 +221,12 @@ export const Root = () => {
   //   const privateKey = await rpc.getPrivateKey();
   //   uiConsole(privateKey);
   // };
+
+  const handleUserInfo = async () => {
+    await getAccounts();
+    await getPrivateKey();
+    // to add more
+  };
 
   function uiConsole(...args: any[]): void {
     const el = document.querySelector("#console>p");
@@ -310,7 +239,11 @@ export const Root = () => {
     <div className={styles.container}>
       <div className={styles.app}>
         <Header authenticateUser={authenticateUser} />
-
+        <div>
+          <button onClick={handleUserInfo}>get your new wallet info</button>
+          {account && <p>{account}</p>}
+          {pkey && <p>{pkey}</p>}
+        </div>
         <main className={styles.main}>
           <Outlet />
         </main>
