@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/ddns/static/css/main.737a0239.css",
-    "main.js": "/ddns/static/js/main.147eca05.js",
-    "static/js/725.72b87f21.chunk.js": "/ddns/static/js/725.72b87f21.chunk.js",
-    "static/media/n27-bold.woff2": "/ddns/static/media/n27-bold.b386d94980938fdd615b.woff2",
-    "static/media/n27-regular.woff2": "/ddns/static/media/n27-regular.8dd8cff31d90bdf0b9e9.woff2",
-    "static/media/circuit-board.svg": "/ddns/static/media/circuit-board.e4a108260a2fac90f61ce378a44ec75c.svg",
-    "static/media/okx-logo.svg": "/ddns/static/media/okx-logo.c168fc5febb9cbbecfb57ea9fcc1a63d.svg",
-    "static/media/logo.svg": "/ddns/static/media/logo.203e3a39c081c661993b55bf4e16dee6.svg",
-    "index.html": "/ddns/index.html",
-    "static/media/connect.svg": "/ddns/static/media/connect.c3042ba99ff68927e79d312dd8b0fd53.svg",
-    "static/media/wallet.svg": "/ddns/static/media/wallet.b08a9bdc4a801ccc6de0b99a318d2de9.svg",
-    "static/media/cancel.svg": "/ddns/static/media/cancel.a0c6d1d83f559ce4e1f55b7d7a51ad0a.svg",
-    "static/media/arrow-right.svg": "/ddns/static/media/arrow-right.2d54cba82a3f1d49dd401a9ab85c86df.svg",
-    "static/media/flash.svg": "/ddns/static/media/flash.a9a8dd2b215522727164fdebd03531a8.svg",
-    "static/media/check.svg": "/ddns/static/media/check.d672d11f1f2c56a4d265b95d0ef945e2.svg",
-    "main.737a0239.css.map": "/ddns/static/css/main.737a0239.css.map",
-    "main.147eca05.js.map": "/ddns/static/js/main.147eca05.js.map",
-    "725.72b87f21.chunk.js.map": "/ddns/static/js/725.72b87f21.chunk.js.map"
+    "main.css": "/static/css/main.27093e59.css",
+    "main.js": "/static/js/main.9df0f754.js",
+    "static/js/725.72b87f21.chunk.js": "/static/js/725.72b87f21.chunk.js",
+    "static/media/n27-bold.woff2": "/static/media/n27-bold.b386d94980938fdd615b.woff2",
+    "static/media/n27-regular.woff2": "/static/media/n27-regular.8dd8cff31d90bdf0b9e9.woff2",
+    "static/media/circuit-board.svg": "/static/media/circuit-board.e4a108260a2fac90f61ce378a44ec75c.svg",
+    "static/media/okx-logo.svg": "/static/media/okx-logo.c168fc5febb9cbbecfb57ea9fcc1a63d.svg",
+    "static/media/logo.svg": "/static/media/logo.203e3a39c081c661993b55bf4e16dee6.svg",
+    "index.html": "/index.html",
+    "static/media/connect.svg": "/static/media/connect.c3042ba99ff68927e79d312dd8b0fd53.svg",
+    "static/media/wallet.svg": "/static/media/wallet.b08a9bdc4a801ccc6de0b99a318d2de9.svg",
+    "static/media/cancel.svg": "/static/media/cancel.a0c6d1d83f559ce4e1f55b7d7a51ad0a.svg",
+    "static/media/arrow-right.svg": "/static/media/arrow-right.2d54cba82a3f1d49dd401a9ab85c86df.svg",
+    "static/media/flash.svg": "/static/media/flash.a9a8dd2b215522727164fdebd03531a8.svg",
+    "static/media/check.svg": "/static/media/check.d672d11f1f2c56a4d265b95d0ef945e2.svg",
+    "main.27093e59.css.map": "/static/css/main.27093e59.css.map",
+    "main.9df0f754.js.map": "/static/js/main.9df0f754.js.map",
+    "725.72b87f21.chunk.js.map": "/static/js/725.72b87f21.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.737a0239.css",
-    "static/js/main.147eca05.js"
+    "static/css/main.27093e59.css",
+    "static/js/main.9df0f754.js"
   ]
 }
