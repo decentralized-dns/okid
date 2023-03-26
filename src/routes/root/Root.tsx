@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { Web3Auth } from "@web3auth/modal";
 import { CHAIN_NAMESPACES, SafeEventEmitterProvider } from "@web3auth/base";
+import { Web3Auth } from "@web3auth/modal";
+import { useEffect, useState } from "react";
 
 import { Outlet } from "react-router-dom";
 
@@ -24,7 +24,12 @@ export const Root = () => {
           clientId: CLIENT_ID, // Get your Client ID from Web3Auth Dashboard
           chainConfig: {
             chainNamespace: CHAIN_NAMESPACES.EIP155,
-            chainId: "0x1", // Please use 0x5 for Goerli Testnet
+            chainId: "65", // okc testnet
+            rpcTarget: "https://exchaintestrpc.okex.org/",
+            displayName: "OKC Testnet",
+            blockExplorer: "",
+            ticker: "OKT",
+            tickerName: "OKC",
           },
         });
 
