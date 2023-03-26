@@ -29,5 +29,4 @@ jobs:
     - run: npm run hardhat:compile
     - run: npm run hardhat:test
     - name: deploy to testnet
-      if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
       run: make deploy
