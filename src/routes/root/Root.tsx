@@ -7,6 +7,7 @@ import { Outlet } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Logo } from "../../components/Logo";
 import styles from "./root.module.css";
+import RPC from "./web3RPC"; // for using web3.js
 
 const CLIENT_ID = "BDQ6I0LSfL5xNw6y5b5vXWwn-g5rlAQvwZMCLhy5ZqV2dW731MaNNsQL-T7-TgZ5PeqK73okS3Z7ExHTtT4bpNo";
 
@@ -16,6 +17,8 @@ export const Root = () => {
   const [provider, setProvider] = useState<SafeEventEmitterProvider | null>(
     null
   );
+  const [account, setAccount] = useState(null);
+  const [pkey, setPkey] = useState(null);
 
   useEffect(() => {
     const init = async () => {
@@ -156,55 +159,58 @@ export const Root = () => {
   //   uiConsole("Chain Switched");
   // };
 
-  // const getAccounts = async () => {
-  //   if (!provider) {
-  //     uiConsole("provider not initialized yet");
-  //     return;
-  //   }
-  //   const rpc = new RPC(provider);
-  //   const address = await rpc.getAccounts();
-  //   uiConsole(address);
-  // };
+  const getAccounts = async () => {
+    if (!provider) {
+      uiConsole("provider not initialized yet");
+      return;
+    }
+    const rpc = new RPC(provider);
+    console.log("rpc:",rpc)
+    const address = await rpc.getAccounts();
+    setAccount(address);
+    uiConsole(address);
+  };
 
-  // const getBalance = async () => {
-  //   if (!provider) {
-  //     uiConsole("provider not initialized yet");
-  //     return;
-  //   }
-  //   const rpc = new RPC(provider);
-  //   const balance = await rpc.getBalance();
-  //   uiConsole(balance);
-  // };
+  const getBalance = async () => {
+    if (!provider) {
+      uiConsole("provider not initialized yet");
+      return;
+    }
+    const rpc = new RPC(provider);
+    const balance = await rpc.getBalance();
+    uiConsole(balance);
+  };
 
-  // const sendTransaction = async () => {
-  //   if (!provider) {
-  //     uiConsole("provider not initialized yet");
-  //     return;
-  //   }
-  //   const rpc = new RPC(provider);
-  //   const receipt = await rpc.sendTransaction();
-  //   uiConsole(receipt);
-  // };
+  const sendTransaction = async () => {
+    if (!provider) {
+      uiConsole("provider not initialized yet");
+      return;
+    }
+    const rpc = new RPC(provider);
+    const receipt = await rpc.sendTransaction();
+    uiConsole(receipt);
+  };
 
-  // const signMessage = async () => {
-  //   if (!provider) {
-  //     uiConsole("provider not initialized yet");
-  //     return;
-  //   }
-  //   const rpc = new RPC(provider);
-  //   const signedMessage = await rpc.signMessage();
-  //   uiConsole(signedMessage);
-  // };
+  const signMessage = async () => {
+    if (!provider) {
+      uiConsole("provider not initialized yet");
+      return;
+    }
+    const rpc = new RPC(provider);
+    const signedMessage = await rpc.signMessage();
+    uiConsole(signedMessage);
+  };
 
-  // const getPrivateKey = async () => {
-  //   if (!provider) {
-  //     uiConsole("provider not initialized yet");
-  //     return;
-  //   }
-  //   const rpc = new RPC(provider);
-  //   const privateKey = await rpc.getPrivateKey();
-  //   uiConsole(privateKey);
-  // };
+  const getPrivateKey = async () => {
+    if (!provider) {
+      uiConsole("provider not initialized yet");
+      return;
+    }
+    const rpc = new RPC(provider);
+    const privateKey = await rpc.getPrivateKey();
+    setPkey(privateKey);
+    uiConsole(privateKey);
+  };
 
   // const changeNetwork = async () => {
   //   if (!provider) {
@@ -215,6 +221,12 @@ export const Root = () => {
   //   const privateKey = await rpc.getPrivateKey();
   //   uiConsole(privateKey);
   // };
+
+  const handleUserInfo = async () => {
+    await getAccounts();
+    await getPrivateKey();
+    // to add more
+  };
 
   function uiConsole(...args: any[]): void {
     const el = document.querySelector("#console>p");
@@ -227,7 +239,11 @@ export const Root = () => {
     <div className={styles.container}>
       <div className={styles.app}>
         <Header authenticateUser={authenticateUser} />
-
+        <div>
+          <button onClick={handleUserInfo}>get your new wallet info</button>
+          {account && <p>{account}</p>}
+          {pkey && <p>{pkey}</p>}
+        </div>
         <main className={styles.main}>
           <Outlet />
         </main>
