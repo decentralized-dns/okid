@@ -1,0 +1,129 @@
+.profileImageContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  overflow: hidden;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  border: 2px solid var(--clr-light);
+  cursor: pointer;
+}
+
+.IconButton {
+  border-radius: 100%;
+  height: 45px;
+  width: 45px;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-dark);
+  background-color: var(--clr-light);
+  transition: background-color var(--transition);
+}
+.IconButton:hover {
+  background-color: var(--clr-white);
+}
+
+.PopoverContent {
+  border-radius: 4px;
+  padding: 20px;
+  width: 260px;
+  background-color: rgb(55 65 81);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,
+    0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.PopoverContent:focus {
+  box-shadow: none;
+}
+.PopoverContent[data-state="open"][data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+.PopoverContent[data-state="open"][data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+.PopoverContent[data-state="open"][data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+.PopoverContent[data-state="open"][data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.PopoverContent button {
+  all: unset;
+}
+
+.PopoverArrow {
+  fill: rgb(55 65 81);
+}
+
+button.buttonSecondary {
+  cursor: pointer;
+  margin-top: var(--space-gap);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--space-2x);
+  padding-inline: var(--space-8x);
+  border-radius: var(--r24);
+  color: var(--clr-accent);
+  background-color: transparent;
+  border: 1px solid var(--clr-accent);
+  transition: border var(--transition), background-color var(--transition),
+    color var(--transition);
+}
+
+button.buttonSecondary:hover {
+  color: var(--clr-dark);
+  background-color: var(--clr-accent-shade);
+  border: 1px solid var(--clr-accent-shade);
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDownAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -5,6 +5,7 @@
   "homepage": "https://decentralized-dns.github.io/",
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.3",
+    "@radix-ui/react-popover": "^1.0.5",
     "@radix-ui/react-tooltip": "^1.0.5",
     "@web3auth/base": "^5.1.0",
     "@web3auth/modal": "^5.1.0",

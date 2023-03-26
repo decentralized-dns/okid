@@ -1,10 +1,16 @@
+import { Form } from "react-router-dom";
 import { ReactComponent as ArrowRight } from "../../icons/arrow-right.svg";
 
 import styles from "./search.module.css";
 
 export const Search = () => {
   return (
-    <fieldset className={styles.fieldSet}>
+    <Form
+      className={styles.fieldSet}
+      id="search-form"
+      role="search"
+      action="/domains"
+    >
       <input
         id="q"
         aria-label="Search domain names"
@@ -14,9 +20,9 @@ export const Search = () => {
         autoFocus={true}
         className={styles.searchInput}
       />
-      <button className={styles.searchButton}>
+      <button type="submit" className={styles.searchButton}>
         <ArrowRight />
       </button>
-    </fieldset>
+    </Form>
   );
 };
