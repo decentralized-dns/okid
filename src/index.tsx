@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { Root } from "./routes/root";
-import { Landing } from "./routes/landing";
 import { Domains } from "./routes/domains";
+import { Landing } from "./routes/landing";
+import { Root } from "./routes/root";
 
 const router = createBrowserRouter([
   {

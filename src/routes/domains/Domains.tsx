@@ -13,41 +13,41 @@ import styles from "./domains.module.css";
 
 const fakeData = [
   {
-    id: 1,
+    id: "d1c49f34-a2ab-4d5c-a2f8-11e8890a1331",
     name: "hackathon.okid",
     price: 12.99,
     isAvailable: true,
   },
   {
-    id: 2,
+    id: "3749b3e7-beeb-4a05-b43f-3b387f0641bb",
     name: "web3.okid",
     price: 12.99,
     isAvailable: true,
   },
-  {
-    id: 3,
-    name: "awesome.okid",
-    price: 12.99,
-    isAvailable: true,
-  },
-  {
-    id: 3,
-    name: "okidteam.okid",
-    price: 12.99,
-    isAvailable: true,
-  },
-  {
-    id: 4,
-    name: "reactjs.okid",
-    price: 12.99,
-    isAvailable: false,
-  },
-  {
-    id: 5,
-    name: "okx.okid",
-    price: 12.99,
-    isAvailable: true,
-  },
+  // {
+  //   id: 3,
+  //   name: "awesome.okid",
+  //   price: 12.99,
+  //   isAvailable: true,
+  // },
+  // {
+  //   id: 3,
+  //   name: "okidteam.okid",
+  //   price: 12.99,
+  //   isAvailable: true,
+  // },
+  // {
+  //   id: 4,
+  //   name: "reactjs.okid",
+  //   price: 12.99,
+  //   isAvailable: false,
+  // },
+  // {
+  //   id: 5,
+  //   name: "okx.okid",
+  //   price: 12.99,
+  //   isAvailable: true,
+  // },
 ];
 
 // export async function loader({ request }) {
@@ -63,12 +63,21 @@ export const Domains = () => {
   const searchParams = new URLSearchParams(location.search);
   const searchQuery = searchParams.get("q");
   const isSearch = Boolean(location.search);
-  const domains = isSearch ? [fakeData[0]] : fakeData;
   const [open, setOpen] = useState(false);
+  const domains = isSearch
+    ? [
+        {
+          id: crypto.randomUUID(),
+          name: `${searchQuery}.okid`,
+          price: 12.99,
+          isAvailable: true,
+        },
+      ]
+    : fakeData;
 
-  const viewDomainClick = (domainName: any) => {
+  const viewDomainClick = () => {
     setOpen(false);
-    navigate(`/domains/${domainName.name}`);
+    navigate(`/domains/${crypto.randomUUID()}`);
   };
 
   return (
@@ -76,7 +85,7 @@ export const Domains = () => {
       <Search />
 
       <ul className={styles.domainNameList}>
-        {domains.map((domainName) => (
+        {domains.map((domainName: any) => (
           <li key={domainName.id} className={styles.domainNameListItem}>
             <Tooltip.Provider delayDuration={300}>
               <Tooltip.Root>
@@ -141,7 +150,7 @@ export const Domains = () => {
                       <Dialog.Close className={styles.dialogButton}>
                         <button
                           className={styles.buttonSecondary}
-                          onClick={() => viewDomainClick(domainName)}
+                          onClick={() => viewDomainClick()}
                         >
                           Your Domains
                         </button>
